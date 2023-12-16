@@ -1,0 +1,70 @@
+{
+    "title:": "KcBlue BT5.0 Tenkey Language Toggle via Escape Key",
+    "rules": [
+        {
+            "description": "For KcBlue BT5.0: Escape key toggles between 'japanese_eisuu' and 'japanese_kana' based on the input language.",
+            "manipulators": [
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 591
+                                }
+                            ]
+                        },
+                        {
+                            "input_sources": [
+                                {
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_if"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "escape"
+                    },
+                    "to": [
+                        {
+                            "key_code": "japanese_eisuu"
+                        }
+                    ],
+                    "type": "basic"
+                },
+                {
+                    "conditions": [
+                        {
+                            "type": "device_if",
+                            "identifiers": [
+                                {
+                                    "vendor_id": 1452,
+                                    "product_id": 591
+                                }
+                            ]
+                        },
+                        {
+                            "input_sources": [
+                                {
+                                    "language": "ja"
+                                }
+                            ],
+                            "type": "input_source_unless"
+                        }
+                    ],
+                    "from": {
+                        "key_code": "escape"
+                    },
+                    "to": [
+                        {
+                            "key_code": "japanese_kana"
+                        }
+                    ],
+                    "type": "basic"
+                }
+            ]
+        }
+    ]
+}
